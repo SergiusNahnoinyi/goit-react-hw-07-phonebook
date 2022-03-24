@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useAddContactMutation } from '../../services/contactsAPI';
 
-// import { useSelector, useDispatch } from 'react-redux';
-// import * as actions from '../redux/phonebook-actions';
-// import { getContacts } from '../redux/phonebook-selectors';
-
 import s from './Form.module.css';
 
 export default function ContactsForm({ contacts }) {
@@ -13,8 +9,6 @@ export default function ContactsForm({ contacts }) {
   const [number, setNumber] = useState('');
 
   const [addContact] = useAddContactMutation();
-  // const contacts = useSelector(getContacts);
-  // const dispatch = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -39,9 +33,7 @@ export default function ContactsForm({ contacts }) {
 
     if (similarContact) {
       return toast.error(`${similarContact.name} is already in your list`);
-    }
-    // dispatch(actions.addContact(name, number));
-    else addContact({ name, number });
+    } else addContact({ name, number });
     setName('');
     setNumber('');
   };
