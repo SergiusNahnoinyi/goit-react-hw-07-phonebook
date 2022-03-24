@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useAddContactMutation } from '../../services/contactsAPI';
 
+import PropTypes from 'prop-types';
 import s from './Form.module.css';
 
 export default function ContactsForm({ contacts }) {
@@ -72,3 +73,13 @@ export default function ContactsForm({ contacts }) {
     </form>
   );
 }
+
+ContactsForm.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }),
+  ),
+};

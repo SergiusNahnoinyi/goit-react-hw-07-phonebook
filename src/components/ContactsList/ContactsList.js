@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useDeleteContactMutation } from '../../services/contactsAPI';
 
+import PropTypes from 'prop-types';
 import s from './Contacts.module.css';
 
 export default function ContactsList({ contacts }) {
@@ -22,3 +23,13 @@ export default function ContactsList({ contacts }) {
     </ul>
   );
 }
+
+ContactsList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }),
+  ),
+};
