@@ -1,14 +1,14 @@
-// import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 // import { getFilter } from '../redux/phonebook-selectors';
-// import * as actions from '../redux/phonebook-actions';
+import { changeFilter } from '../redux/phonebook-actions';
 
 import s from './Filter.module.css';
 
 export default function Filter() {
-  // const filterValue = useSelector(getFilter);
-  // const dispatch = useDispatch();
+  const filterValue = useSelector(state => state.filter);
+  const dispatch = useDispatch();
 
-  // const changeFilter = e => dispatch(actions.changeFilter(e.target.value));
+  // const changeFilter = e => dispatch(changeFilter(e.target.value));
 
   return (
     <label className={s.label}>
@@ -17,8 +17,8 @@ export default function Filter() {
         className={s.input}
         type="text"
         name="name"
-        // value={filterValue}
-        // onChange={changeFilter}
+        value={filterValue}
+        onChange={e => dispatch(changeFilter(e.target.value))}
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
