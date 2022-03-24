@@ -4,12 +4,13 @@ import { useFetchContactsQuery } from './services/contactsAPI';
 import ContactsForm from './components/ContactsForm';
 import Filter from './components/Filter';
 import ContactsList from './components/ContactsList';
+import Loader from './components/Loader/Loader';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 export default function App() {
-  const { data: contacts } = useFetchContactsQuery();
+  const { data: contacts, isFetching } = useFetchContactsQuery();
 
   return (
     <section className="phonebook">
@@ -18,6 +19,7 @@ export default function App() {
 
       <h2 className="title">Contacts</h2>
       <Filter />
+      {isFetching && <Loader />}
       <ContactsList contacts={contacts} />
       <ToastContainer />
     </section>
