@@ -1,4 +1,4 @@
-import { contactsApi } from '../../services/contactsAPI';
+import { contactsApi } from '../services/contactsAPI';
 import { configureStore } from '@reduxjs/toolkit';
 import { filter } from './phonebook-reducers';
 

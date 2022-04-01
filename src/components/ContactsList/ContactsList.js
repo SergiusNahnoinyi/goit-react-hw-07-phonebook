@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useDeleteContactMutation } from '../../services/contactsAPI';
+import { useDeleteContactMutation } from '../../services/contactsAPI.js';
 
 import PropTypes from 'prop-types';
 import s from './Contacts.module.css';

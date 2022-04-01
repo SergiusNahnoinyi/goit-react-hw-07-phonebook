@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { changeFilter } from '../redux/phonebook-actions';
+import { changeFilter } from '../../redux/phonebook-actions';
 
 import s from './Filter.module.css';
 
